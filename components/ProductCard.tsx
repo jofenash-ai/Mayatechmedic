@@ -45,10 +45,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
         <RouterComponents.Link to={`/products/${product.id}`} className="text-lg font-semibold text-gray-800 hover:text-orange-600 line-clamp-2 mb-2">
           {product.name}
         </RouterComponents.Link>
-        <div className="flex items-center mb-2">
+        <div className="flex items-center justify-between mb-2">
           {renderStars(product.rating)}
-          <span className="text-sm text-gray-600 ml-2">({product.reviews} reviews)</span>
+          <span className="text-sm text-gray-600">({product.reviews} reviews)</span>
         </div>
+        <p className="text-gray-700 text-sm mb-2">
+          Condition: <span className="font-medium text-orange-500">{product.condition}</span>
+        </p>
         <p className="text-2xl font-bold text-gray-900 mt-auto mb-3">
           ${product.price.toFixed(2)}
         </p>

@@ -63,7 +63,7 @@ const OrderConfirmationPage: React.FC = () => {
         </p>
 
         <div className="text-left bg-gray-50 p-6 rounded-lg mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Order Information</h2>
+          <h2 className="2xl font-bold text-gray-800 mb-4">Order Information</h2>
           <div className="space-y-2 text-lg text-gray-700">
             <p><strong>Order Number:</strong> {order.id}</p>
             <p><strong>Order Date:</strong> {new Date(order.orderDate).toLocaleDateString()} {new Date(order.orderDate).toLocaleTimeString()}</p>

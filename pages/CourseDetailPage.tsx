@@ -100,16 +100,32 @@ const CourseDetailPage: React.FC = () => {
             <h3 className="text-2xl font-bold text-gray-800 mb-4">
               What You'll Learn
             </h3>
-            <ul className="list-disc list-inside text-gray-700 space-y-2 mb-8 text-lg">
-              {course.modules.map((module, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="font-semibold text-orange-600 mr-2">Module {index + 1}:</span>
-                  <div>
-                    <span className="font-semibold">{module.title}:</span> {module.content}
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <div className="prose max-w-none text-gray-700 mb-8"> {/* Use prose for better markdown rendering */}
+              <ul className="list-disc list-inside space-y-2 text-lg">
+                {course.modules.map((module, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="font-semibold text-orange-600 mr-2">Module {index + 1}:</span>
+                    <div dangerouslySetInnerHTML={{ __html: `<strong>${module.title}:</strong> ${module.content}` }} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {course.learningSchedule && course.learningSchedule.length > 0 && (
+              <>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4 mt-8">
+                  Suggested Learning Schedule
+                </h3>
+                <div className="prose max-w-none text-gray-700 mb-8">
+                  <ul className="list-disc list-inside space-y-2 text-lg">
+                    {course.learningSchedule.map((scheduleItem, index) => (
+                      <li key={index}>{scheduleItem}</li>
+                    ))}
+                  </ul>
+                </div>
+              </>
+            )}
+
 
             <div className="mt-8 pt-6 border-t border-gray-200">
                 <p className="text-lg text-gray-700">

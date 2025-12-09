@@ -1,16 +1,17 @@
 
-export const APP_NAME = "MayaTech";
-export const COMPANY_SLOGAN = "Learn, build, innovate!";
-export const LOGO_URL = "https://picsum.photos/60/60?random=1"; // Placeholder logo
+
+export const APP_NAME = "LELE";
+export const COMPANY_SLOGAN = "Your marketplace for electronics & learning!";
+export const LOGO_URL = "https://picsum.photos/60/60?random=marketplace_logo"; // Placeholder logo updated for LELE
 
 
 // --- Legal and Informational Page Content ---
 export const PRIVACY_POLICY_CONTENT = `
-## MayaTech Privacy Policy
+## LELE Privacy Policy
 
 **Last updated: October 26, 2024**
 
-MayaTech operates the https://mayatech.com website (the "Service").
+LELE operates the https://lele-marketplace.com website (the "Service").
 
 This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.
 
@@ -33,7 +34,7 @@ We collect several different types of information for various purposes to provid
 
 **Use of Data**
 
-MayaTech uses the collected data for various purposes:
+LELE uses the collected data for various purposes:
 
 *   To provide and maintain the Service
 *   To notify you about changes to our Service
@@ -61,11 +62,11 @@ If you have any questions about this Privacy Policy, please visit our Contact Us
 `;
 
 export const TERMS_OF_SERVICE_CONTENT = `
-## MayaTech Terms of Service
+## LELE Terms of Service
 
 **Last updated: October 26, 2024**
 
-Please read these Terms of Service ("Terms") carefully before using the https://mayatech.com website (the "Service") operated by MayaTech ("us", "we", or "our").
+Please read these Terms of Service ("Terms") carefully before using the https://lele-marketplace.com website (the "Service") operated by LELE ("us", "we", or "our").
 
 Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.
 
@@ -81,13 +82,13 @@ You agree not to disclose your password to any third party. You must notify us i
 
 **Intellectual Property**
 
-The Service and its original content, features and functionality are and will remain the exclusive property of MayaTech and its licensors. The Service is protected by copyright, trademark, and other laws of both the Ethiopia and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of MayaTech.
+The Service and its original content, features and functionality are and will remain the exclusive property of LELE and its licensors. The Service is protected by copyright, trademark, and other laws of both the Ethiopia and foreign countries. Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of LELE.
 
 **Links To Other Web Sites**
 
-Our Service may contain links to third-party web sites or services that are not owned or controlled by MayaTech.
+Our Service may contain links to third-party web sites or services that are not owned or controlled by LELE.
 
-MayaTech has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that MayaTech shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.
+LELE has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that LELE shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.
 
 We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit.
 
@@ -115,11 +116,11 @@ If you have any questions about these Terms, please visit our Contact Us page.
 `;
 
 export const SHIPPING_INFO_CONTENT = `
-## Shipping Information
+## LELE Shipping Information
 
 **Last updated: October 26, 2024**
 
-At MayaTech, we are committed to delivering your electronic components and course materials quickly and efficiently. Please review our shipping policy below.
+At LELE, we are committed to delivering your electronic components and course materials quickly and efficiently. Please review our shipping policy below.
 
 **1. Shipping Destinations**
 
@@ -152,11 +153,11 @@ At MayaTech, we are committed to delivering your electronic components and cours
 
 **6. Customs, Duties, and Taxes (International Orders)**
 
-*   For international orders, you may be subject to import duties, taxes, and customs fees levied by the destination country. These charges are the recipient's responsibility. MayaTech is not responsible for any customs duties or taxes applied to your order.
+*   For international orders, you may be subject to import duties, taxes, and customs fees levied by the destination country. These charges are the recipient's responsibility. LELE is not responsible for any customs duties or taxes applied to your order.
 
 **7. Damaged or Lost Items**
 
-*   If your item arrives damaged, please contact us immediately at support@mayatech.com with photos of the damage.
+*   If your item arrives damaged, please contact us immediately at support@lele-marketplace.com with photos of the damage.
 *   If your item is lost in transit, please contact us after the estimated delivery time has passed, and we will assist in initiating a search for the package.
 
 **Contact Us**
@@ -165,11 +166,11 @@ If you have any questions about the shipping of your order, please visit our Con
 `;
 
 export const RETURNS_CONTENT = `
-## Returns & Refunds Policy
+## LELE Returns & Refunds Policy
 
 **Last updated: October 26, 2024**
 
-At MayaTech, we want you to be completely satisfied with your purchase. If you are not entirely happy with your electronic components, we're here to help. Please review our returns and refunds policy below.
+At LELE, we want you to be completely satisfied with your purchase. If you are not entirely happy with your electronic components, we're here to help. Please review our returns and refunds policy below.
 
 **1. Right to Return**
 
@@ -202,11 +203,11 @@ The following items are non-returnable:
 
 **5. Damaged or Defective Items**
 
-*   If you receive a damaged or defective item, please contact us immediately at support@mayatech.com with photos of the damage/defect. We will arrange for a replacement or a full refund.
+*   If you receive a damaged or defective item, please contact us immediately at support@lele-marketplace.com with photos of the damage/defect. We will arrange for a replacement or a full refund.
 
 **6. How to Initiate a Return**
 
-*   To initiate a return, please contact our customer service team at support@mayatech.com with your order number and details of the product you wish to return. We will provide you with instructions on how to proceed.
+*   To initiate a return, please contact our customer service team at support@lele-marketplace.com with your order number and details of the product you wish to return. We will provide you with instructions on how to proceed.
 
 **Contact Us**
 
@@ -218,14 +219,14 @@ export const FAQ_CONTENT = `
 
 **Last updated: October 26, 2024**
 
-Welcome to the MayaTech FAQ page! Here, you'll find answers to common questions about our products, courses, ordering, and services.
+Welcome to the LELE FAQ page! Here, you'll find answers to common questions about our products, courses, ordering, and services.
 
 ---
 
 ### General Questions
 
-**Q: What is MayaTech?**
-A: MayaTech is your premier destination for electronics education and quality electronic spare parts. We offer a wide range of electronic products and expert-led courses designed to empower you to learn, build, and innovate.
+**Q: What is LELE?**
+A: LELE is your online marketplace for electronics and premier destination for electronics education. We offer a wide range of electronic products and expert-led courses designed to empower you to shop, learn, build, and innovate.
 
 **Q: How can I contact customer service?**
 A: You can reach our customer service team through the Contact Us page on our website. We strive to respond to all inquiries within 24-48 business hours.
@@ -238,7 +239,7 @@ A: You can reach our customer service team through the Contact Us page on our we
 A: We sell a diverse range of electronic components, including microcontrollers, resistors, capacitors, LEDs, prototyping boards, tools, and specific spare parts for computers, laptops, printers, and photocopy machines.
 
 **Q: How do I find a specific product?**
-A: You can use the search bar at the top of any page to search for products by name or description. You can also browse by category on the Electronics Products page.
+A: You can use the search bar at the top of any page to search for products by name or description. You can also browse by category on the Electronic Products page.
 
 **Q: How do I add items to my cart?**
 A: On any product details page or product card, simply click the "Add to Cart" button. You can adjust the quantity of items in your cart.
@@ -279,7 +280,7 @@ A: Yes, all our courses are designed to be self-paced, allowing you to learn at 
 A: Currently, we do not offer course completion certificates. However, the knowledge and skills you gain are invaluable! (In a real system, this would be a great feature).
 
 **Q: Do my courses expire?**
-A: Once you enroll in a course, you will have lifetime access to the course materials within your MayaTech account.
+A: Once you enroll in a course, you will have lifetime access to the course materials within your LELE account.
 
 ---
 

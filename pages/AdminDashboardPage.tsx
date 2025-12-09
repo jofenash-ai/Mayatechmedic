@@ -32,27 +32,31 @@ const AdminDashboardPage: React.FC = () => {
         <div className="flex justify-center mb-8 border-b border-gray-200">
           <button
             onClick={() => setActiveTab('products')}
-            className={`py-3 px-6 text-lg font-medium ${
-              activeTab === 'products'
-                ? 'border-b-2 border-orange-500 text-orange-600'
-                : 'text-gray-600 hover:text-orange-500'
-            } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-colors duration-200`}
+            className={`py-3 px-6 text-lg font-medium transition-colors duration-200 
+              ${activeTab === 'products'
+                ? 'border-b-4 border-orange-500 text-orange-600 font-semibold'
+                : 'text-gray-600 hover:text-orange-500 hover:border-b-2 hover:border-gray-300'} 
+              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500`}
+            aria-selected={activeTab === 'products'}
+            role="tab"
           >
             Add New Product
           </button>
           <button
             onClick={() => setActiveTab('courses')}
-            className={`py-3 px-6 text-lg font-medium ${
-              activeTab === 'courses'
-                ? 'border-b-2 border-orange-500 text-orange-600'
-                : 'text-gray-600 hover:text-orange-500'
-            } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-colors duration-200`}
+            className={`py-3 px-6 text-lg font-medium transition-colors duration-200 
+              ${activeTab === 'courses'
+                ? 'border-b-4 border-orange-500 text-orange-600 font-semibold'
+                : 'text-gray-600 hover:text-orange-500 hover:border-b-2 hover:border-gray-300'} 
+              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500`}
+            aria-selected={activeTab === 'courses'}
+            role="tab"
           >
             Add New Course
           </button>
         </div>
 
-        <div>
+        <div role="tabpanel" id={`${activeTab}-tab-panel`} aria-labelledby={`${activeTab}-tab`}>
           {activeTab === 'products' && <AddProductForm />}
           {activeTab === 'courses' && <AddCourseForm />}
         </div>

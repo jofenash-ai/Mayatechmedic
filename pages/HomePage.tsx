@@ -16,6 +16,17 @@ const HomePage: React.FC = () => {
   const featuredProducts = getProducts().slice(0, 4); // Display first 4 products
   const featuredCourses = getCourses().slice(0, 3); // Display first 3 courses
 
+  const categories = [
+    { name: 'Microcontrollers', imageUrl: 'https://picsum.photos/150/150?random=cat1', link: '/products?category=Microcontrollers' },
+    { name: 'Computer Parts', imageUrl: 'https://picsum.photos/150/150?random=cat21', link: '/products?category=Computer Parts' },
+    { name: 'Laptop Parts', imageUrl: 'https://picsum.photos/150/150?random=cat22', link: '/products?category=Laptop Parts' },
+    { name: 'Printer Parts', imageUrl: 'https://picsum.photos/150/150?random=cat23', link: '/products?category=Printer Parts' },
+    { name: 'Photocopy Parts', imageUrl: 'https://picsum.photos/150/150?random=cat24', link: '/products?category=Photocopy Parts' },
+    { name: 'General Components', imageUrl: 'https://picsum.photos/150/150?random=cat2', link: '/products?category=General Electronic Components' },
+    { name: 'Tools & Equipment', imageUrl: 'https://picsum.photos/150/150?random=cat3', link: '/products?category=Tools' },
+    { name: 'Prototyping', imageUrl: 'https://picsum.photos/150/150?random=cat4', link: '/products?category=Prototyping' },
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -30,12 +41,12 @@ const HomePage: React.FC = () => {
           <div className="space-x-4 animate-fade-in-up">
             <RouterComponents.Link to="/products">
               <Button size="lg" variant="primary">
-                Shop Electronic Products
+                Shop Now
               </Button>
             </RouterComponents.Link>
             <RouterComponents.Link to="/courses">
               <Button size="lg" variant="secondary" className="bg-transparent border border-white text-white hover:bg-white hover:text-blue-700">
-                Explore Courses
+                Learn Electronics
               </Button>
             </RouterComponents.Link>
           </div>
@@ -45,41 +56,15 @@ const HomePage: React.FC = () => {
       {/* Featured Categories */}
       <section className="container mx-auto py-12 px-4">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-          Popular Categories
+          Explore Our Categories
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <RouterComponents.Link to="/products?category=Microcontrollers" className="group block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-            <img src="https://picsum.photos/100/100?random=cat1" alt="Microcontrollers" className="mx-auto mb-4 rounded-full" />
-            <h3 className="text-lg font-semibold text-gray-800 group-hover:text-orange-600">Microcontrollers</h3>
-          </RouterComponents.Link>
-          <RouterComponents.Link to="/products?category=Computer Parts" className="group block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-            <img src="https://picsum.photos/100/100?random=cat21" alt="Computer Parts" className="mx-auto mb-4 rounded-full" />
-            <h3 className="text-lg font-semibold text-gray-800 group-hover:text-orange-600">Computer Parts</h3>
-          </RouterComponents.Link>
-          <RouterComponents.Link to="/products?category=Laptop Parts" className="group block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-            <img src="https://picsum.photos/100/100?random=cat22" alt="Laptop Parts" className="mx-auto mb-4 rounded-full" />
-            <h3 className="text-lg font-semibold text-gray-800 group-hover:text-orange-600">Laptop Parts</h3>
-          </RouterComponents.Link>
-          <RouterComponents.Link to="/products?category=Printer Parts" className="group block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-            <img src="https://picsum.photos/100/100?random=cat23" alt="Printer Parts" className="mx-auto mb-4 rounded-full" />
-            <h3 className="text-lg font-semibold text-gray-800 group-hover:text-orange-600">Printer Parts</h3>
-          </RouterComponents.Link>
-          <RouterComponents.Link to="/products?category=Photocopy Parts" className="group block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-            <img src="https://picsum.photos/100/100?random=cat24" alt="Photocopy Parts" className="mx-auto mb-4 rounded-full" />
-            <h3 className="text-lg font-semibold text-gray-800 group-hover:text-orange-600">Photocopy Parts</h3>
-          </RouterComponents.Link>
-          <RouterComponents.Link to="/products?category=General Electronic Components" className="group block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-            <img src="https://picsum.photos/100/100?random=cat2" alt="General Electronic Components" className="mx-auto mb-4 rounded-full" />
-            <h3 className="text-lg font-semibold text-gray-800 group-hover:text-orange-600">General Electronic Components</h3>
-          </RouterComponents.Link>
-          <RouterComponents.Link to="/products?category=Tools" className="group block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-            <img src="https://picsum.photos/100/100?random=cat3" alt="Tools" className="mx-auto mb-4 rounded-full" />
-            <h3 className="text-lg font-semibold text-gray-800 group-hover:text-orange-600">Tools &amp; Equipment</h3>
-          </RouterComponents.Link>
-          <RouterComponents.Link to="/products?category=Prototyping" className="group block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-            <img src="https://picsum.photos/100/100?random=cat4" alt="Prototyping" className="mx-auto mb-4 rounded-full" />
-            <h3 className="text-lg font-semibold text-gray-800 group-hover:text-orange-600">Prototyping</h3>
-          </RouterComponents.Link>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          {categories.map((category) => (
+            <RouterComponents.Link to={category.link} key={category.name} className="group block bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center flex flex-col items-center">
+              <img src={category.imageUrl} alt={category.name} className="mx-auto mb-3 h-24 w-24 rounded-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-gray-800 group-hover:text-orange-600">{category.name}</h3>
+            </RouterComponents.Link>
+          ))}
         </div>
       </section>
 
@@ -87,7 +72,7 @@ const HomePage: React.FC = () => {
       <section className="bg-white py-12 px-4">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-            Featured Electronic Products
+            Top Picks in Electronics
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredProducts.map((product) => (
@@ -107,7 +92,7 @@ const HomePage: React.FC = () => {
       {/* Featured Courses */}
       <section className="container mx-auto py-12 px-4">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-          Top Maintenance Courses
+          Enhance Your Skills with Our Courses
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {featuredCourses.map((course) => (

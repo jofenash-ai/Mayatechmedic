@@ -52,7 +52,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       localStorage.setItem('currentUser', JSON.stringify(registeredUser));
       localStorage.setItem('authToken', authToken);
       showToast('success', `Account created successfully! Welcome, ${registeredUser.name}!`);
-      console.log(`[SIMULATED EMAIL] Welcome to MayaTech! You have successfully registered with email ${email}.`);
+      console.log(`[SIMULATED EMAIL] Welcome to LELE! You have successfully registered with email ${email}.`);
       return true;
     } catch (error: any) {
       showToast('error', `Registration failed: ${error.message}`);

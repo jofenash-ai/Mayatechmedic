@@ -46,7 +46,7 @@ const LoginPage: React.FC = () => {
   const handleForgotPassword = (e: React.MouseEvent) => {
     e.preventDefault();
     showToast('info', 'Simulating sending a password reset link to your email (check your console).');
-    console.log(`[SIMULATED EMAIL] Password Reset Link for ${email || 'your account'}: https://mayatech.com/reset-password?token=mock-reset-token`);
+    console.log(`[SIMULATED EMAIL] Password Reset Link for ${email || 'your account'}: https://lele-marketplace.com/reset-password?token=mock-reset-token`);
   };
 
   return (
@@ -71,7 +71,7 @@ const LoginPage: React.FC = () => {
             </button>
           </p>
           <p className="mt-4 text-center text-xs text-gray-500">
-            Note: Register `admin@mayatech.com` with password `admin` to become an administrator.
+            Note: Register `admin@lele.com` with password `admin` to become an administrator.
             Any other email will be a regular user.
           </p>
         </div>

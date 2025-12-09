@@ -8,6 +8,7 @@ export interface Product {
   stock: number;
   rating: number;
   reviews: number;
+  condition: 'New' | 'Used' | 'Refurbished'; // New field for Jiji-like functionality
 }
 
 export interface CourseModule {
@@ -26,6 +27,7 @@ export interface Course {
   price: number;
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   modules: CourseModule[];
+  learningSchedule: string[]; // New field for structured learning path
 }
 
 export interface CartItem {

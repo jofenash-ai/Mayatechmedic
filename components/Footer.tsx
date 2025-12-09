@@ -13,8 +13,8 @@ const Footer: React.FC = () => {
         <div>
           <h3 className="text-white text-lg font-semibold mb-4">{APP_NAME}</h3>
           <p className="text-sm">
-            Your premier destination for electronics education and quality electronic spare parts.
-            Empowering innovation through learning and essential resources.
+            Your online marketplace for electronics and premier destination for electronics education.
+            Empowering innovation through shopping, learning and essential resources.
           </p>
         </div>
 

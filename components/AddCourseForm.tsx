@@ -15,15 +15,23 @@ const AddCourseForm: React.FC = () => {
     price: 0,
     difficulty: 'Beginner' as 'Beginner' | 'Intermediate' | 'Advanced',
     modules: [{ title: '', content: '' }] as CourseModule[],
+    learningSchedule: [] as string[], // Initialize new field
   });
   const { showToast } = useToast(); // Use the toast context
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setCourseData((prev) => ({
-      ...prev,
-      [name]: name === 'price' ? parseFloat(value) : value,
-    }));
+    if (name === 'learningSchedule') {
+      setCourseData((prev) => ({
+        ...prev,
+        [name]: value.split('\n').filter(item => item.trim() !== ''),
+      }));
+    } else {
+      setCourseData((prev) => ({
+        ...prev,
+        [name]: name === 'price' ? parseFloat(value) : value,
+      }));
+    }
   };
 
   const handleModuleChange = (index: number, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -71,6 +79,7 @@ const AddCourseForm: React.FC = () => {
       price: 0,
       difficulty: 'Beginner',
       modules: [{ title: '', content: '' }],
+      learningSchedule: [],
     });
   };
 
@@ -198,15 +207,16 @@ const AddCourseForm: React.FC = () => {
                 />
               </div>
               <div>
-                <label htmlFor={`moduleContent-${index}`} className="block text-sm font-medium text-gray-700 mb-1">Module {index + 1} Content</label>
+                <label htmlFor={`moduleContent-${index}`} className="block text-sm font-medium text-gray-700 mb-1">Module {index + 1} Content (HTML allowed)</label>
                 <textarea
                   id={`moduleContent-${index}`}
                   name="content"
                   value={module.content}
                   onChange={(e) => handleModuleChange(index, e)}
-                  rows={2}
+                  rows={4}
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
+                  placeholder="Use HTML tags like <ul><li>, <strong>, <br/> for formatting."
                 ></textarea>
               </div>
               {courseData.modules.length > 1 && (
@@ -221,6 +231,20 @@ const AddCourseForm: React.FC = () => {
           <Button type="button" onClick={addModule} variant="secondary" className="mt-4">
             Add Another Module
           </Button>
+        </div>
+
+        {/* Learning Schedule (New field) */}
+        <div className="border-t pt-6 mt-6 border-gray-200">
+          <label htmlFor="learningSchedule" className="block text-sm font-medium text-gray-700 mb-1">Learning Schedule (One item per line)</label>
+          <textarea
+            id="learningSchedule"
+            name="learningSchedule"
+            value={courseData.learningSchedule.join('\n')}
+            onChange={handleChange}
+            rows={5}
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+            placeholder="e.g.,&#10;Week 1-2: Module 1 (Introduction to Arduino)&#10;Week 3-5: Module 2 (Basic I/O Operations)"
+          ></textarea>
         </div>
 
         <Button type="submit" variant="primary" size="lg" className="w-full mt-6">

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from './Button';
 import { addProduct } from '../services/dataService';
 import { useToast } from '../context/ToastContext'; // Import useToast
+import { Product } from '../types'; // Import Product type for condition
 
 const AddProductForm: React.FC = () => {
   const [productData, setProductData] = useState({
@@ -13,10 +14,11 @@ const AddProductForm: React.FC = () => {
     stock: 0,
     rating: 0,
     reviews: 0,
+    condition: 'New' as Product['condition'], // Initialize new field
   });
   const { showToast } = useToast(); // Use the toast context
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setProductData((prev) => ({
       ...prev,
@@ -41,6 +43,7 @@ const AddProductForm: React.FC = () => {
       stock: 0,
       rating: 0,
       reviews: 0,
+      condition: 'New',
     });
   };
 
@@ -109,6 +112,21 @@ const AddProductForm: React.FC = () => {
             className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
             required
           />
+        </div>
+        <div>
+          <label htmlFor="condition" className="block text-sm font-medium text-gray-700 mb-1">Condition</label>
+          <select
+            id="condition"
+            name="condition"
+            value={productData.condition}
+            onChange={handleChange}
+            className="w-full p-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+            required
+          >
+            <option value="New">New</option>
+            <option value="Used">Used</option>
+            <option value="Refurbished">Refurbished</option>
+          </select>
         </div>
         <div>
           <label htmlFor="stock" className="block text-sm font-medium text-gray-700 mb-1">Stock</label>

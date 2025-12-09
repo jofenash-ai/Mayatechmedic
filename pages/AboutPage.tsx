@@ -11,7 +11,7 @@ const AboutPage: React.FC = () => {
 
         <div className="text-lg text-gray-700 leading-relaxed space-y-6">
           <p>
-            Welcome to <span className="font-semibold text-orange-600">{APP_NAME}</span>, your premier destination for
+            Welcome to <span className="font-semibold text-orange-600">{APP_NAME}</span>, your online marketplace for
             high-quality electronic spare parts and comprehensive maintenance courses.
             We are dedicated to empowering individuals and businesses with the tools and knowledge
             necessary to thrive in the ever-evolving world of electronics.
@@ -31,7 +31,7 @@ const AboutPage: React.FC = () => {
             a curated selection of products and expert-led courses.
           </p>
 
-          <h2 className="text-3xl font-bold text-gray-800 pt-8 mb-4">What We Offer</h2>
+          <h2 className="3xl font-bold text-gray-800 pt-8 mb-4">What We Offer</h2>
           <ul className="list-disc list-inside space-y-2">
             <li>
               <span className="font-semibold text-orange-600">Premium Electronic Parts:</span>
@@ -62,7 +62,7 @@ const AboutPage: React.FC = () => {
           </p>
 
           <p className="pt-6 italic text-gray-600 text-center">
-            Thank you for choosing {APP_NAME}. We look forward to helping you learn, build, and innovate!
+            Thank you for choosing {APP_NAME}. We look forward to helping you shop, learn, and innovate!
           </p>
         </div>
       </div>

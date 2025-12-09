@@ -14,7 +14,10 @@ const ProductsPage: React.FC = () => {
 
   const [searchTerm, setSearchTerm] = useState(queryParams.get('search') || '');
   const [selectedCategory, setSelectedCategory] = useState(queryParams.get('category') || 'All');
+  const [selectedCondition, setSelectedCondition] = useState<'All' | Product['condition']>('All'); // New state for condition filter
   const [sortOrder, setSortOrder] = useState<'price-asc' | 'price-desc' | 'name-asc' | 'name-desc' | 'rating-desc'>('name-asc');
+  const [minPrice, setMinPrice] = useState<number | ''>('');
+  const [maxPrice, setMaxPrice] = useState<number | ''>('');
 
   useEffect(() => {
     setSearchTerm(queryParams.get('search') || '');
@@ -29,13 +32,19 @@ const ProductsPage: React.FC = () => {
     return ['All', ...Array.from(categories)].sort((a: string, b: string) => a.localeCompare(b));
   }, []);
 
+  const allConditions: ('All' | Product['condition'])[] = ['All', 'New', 'Used', 'Refurbished']; // Defined conditions
+
   const filteredAndSortedProducts = useMemo(() => {
     // FIX: Use getProducts() to get the product list.
     let filtered = getProducts().filter((product) => {
       const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                             product.description.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
-      return matchesSearch && matchesCategory;
+      const matchesCondition = selectedCondition === 'All' || product.condition === selectedCondition; // New condition filter
+      const matchesMinPrice = minPrice === '' || product.price >= minPrice;
+      const matchesMaxPrice = maxPrice === '' || product.price <= maxPrice;
+
+      return matchesSearch && matchesCategory && matchesCondition && matchesMinPrice && matchesMaxPrice;
     });
 
     switch (sortOrder) {
@@ -60,7 +69,7 @@ const ProductsPage: React.FC = () => {
         break;
     }
     return filtered;
-  }, [searchTerm, selectedCategory, sortOrder]); // Removed 'products' from dependencies as it's fetched via getProducts()
+  }, [searchTerm, selectedCategory, selectedCondition, sortOrder, minPrice, maxPrice]); // Added new filter dependencies
 
   return (
     <div className="container mx-auto py-8 px-4 min-h-screen">
@@ -68,7 +77,7 @@ const ProductsPage: React.FC = () => {
         Electronic Products
       </h1>
 
-      <div className="flex flex-col md:flex-row gap-6 mb-8 bg-white p-6 rounded-lg shadow-md">
+      <div className="flex flex-col lg:flex-row gap-6 mb-8 bg-white p-6 rounded-lg shadow-md">
         {/* Search Input */}
         <div className="flex-grow">
           <label htmlFor="search-input" className="block text-sm font-medium text-gray-700 mb-1">
@@ -85,7 +94,7 @@ const ProductsPage: React.FC = () => {
         </div>
 
         {/* Category Filter */}
-        <div className="w-full md:w-1/4">
+        <div className="w-full lg:w-1/5">
           <label htmlFor="category-select" className="block text-sm font-medium text-gray-700 mb-1">
             Category
           </label>
@@ -102,9 +111,51 @@ const ProductsPage: React.FC = () => {
             ))}
           </select>
         </div>
+      </div>
+
+      <div className="flex flex-col lg:flex-row gap-6 mb-8 bg-white p-6 rounded-lg shadow-md">
+        {/* Condition Filter (New) */}
+        <div className="w-full lg:w-1/5">
+          <label htmlFor="condition-select" className="block text-sm font-medium text-gray-700 mb-1">
+            Condition
+          </label>
+          <select
+            id="condition-select"
+            className="w-full p-3 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+            value={selectedCondition}
+            onChange={(e) => setSelectedCondition(e.target.value as typeof selectedCondition)}
+          >
+            {allConditions.map((condition) => (
+              <option key={condition} value={condition}>
+                {condition}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Price Range Filters (New) */}
+        <div className="w-full lg:w-2/5">
+          <label className="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
+          <div className="flex space-x-2">
+            <input
+              type="number"
+              placeholder="Min Price"
+              className="w-1/2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+              value={minPrice}
+              onChange={(e) => setMinPrice(e.target.value === '' ? '' : parseFloat(e.target.value))}
+            />
+            <input
+              type="number"
+              placeholder="Max Price"
+              className="w-1/2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value === '' ? '' : parseFloat(e.target.value))}
+            />
+          </div>
+        </div>
 
         {/* Sort By */}
-        <div className="w-full md:w-1/4">
+        <div className="w-full lg:w-1/5">
           <label htmlFor="sort-select" className="block text-sm font-medium text-gray-700 mb-1">
             Sort By
           </label>
@@ -122,6 +173,7 @@ const ProductsPage: React.FC = () => {
           </select>
         </div>
       </div>
+
 
       {filteredAndSortedProducts.length === 0 ? (
         <p className="text-center text-gray-600 text-lg mt-12">No products matching your criteria were found.</p>

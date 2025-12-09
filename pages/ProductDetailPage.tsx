@@ -85,6 +85,9 @@ const ProductDetailPage: React.FC = () => {
             <p className="text-xl font-semibold text-gray-700 mb-2">
               Category: <span className="text-orange-600">{product.category}</span>
             </p>
+            <p className="text-xl font-semibold text-gray-700 mb-2">
+              Condition: <span className="text-orange-600">{product.condition}</span>
+            </p>
             <p className="text-gray-800 text-lg leading-relaxed mb-6">
               {product.description}
             </p>

@@ -387,9 +387,9 @@ const CheckoutPage: React.FC = () => {
               </label>
               {selectedPaymentMethod === 'BANK_TRANSFER' && (
                 <div className="mt-4 p-3 bg-gray-50 rounded-md text-sm text-gray-700">
-                  <p className="font-semibold">Bank Name: MayaTech Bank</p>
+                  <p className="font-semibold">Bank Name: LELE Bank</p>
                   <p>Account Number: 123-456-7890</p>
-                  <p>SWIFT Code: MAYAETAA</p>
+                  <p>SWIFT Code: LELEETAA</p>
                   <p className="mt-2">Please transfer the total amount including your order number as reference.</p>
                 </div>
               )}
